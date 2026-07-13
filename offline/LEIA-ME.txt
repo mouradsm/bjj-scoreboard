@@ -1,0 +1,66 @@
+====================================================
+  PLACAR BJJ — Placar de Jiu-Jitsu (versão offline)
+====================================================
+
+Este é um programa que roda direto no navegador, sem instalar nada
+e SEM PRECISAR DE INTERNET. Tudo (fontes, sons, lógica) está dentro
+de um único arquivo.
+
+
+------------------------------------------
+COMO USAR (rápido)
+------------------------------------------
+
+1. Copie o arquivo "Placar BJJ.html" para o computador ou deixe no
+   pen drive.
+
+2. Dê DOIS CLIQUES no arquivo. Ele abre no seu navegador. Essa é a
+   TELA DE CONTROLE (onde o árbitro/mesa lança os pontos).
+
+3. Clique no botão verde "Abrir Tela de Exibição ↗".
+   Abre uma segunda janela: essa é a TELA DO PÚBLICO/PROJETOR.
+
+4. Arraste essa segunda janela para o segundo monitor / TV / projetor
+   e aperte F11 para deixá-la em tela cheia.
+
+5. Pronto. Tudo que você lançar na tela de controle aparece na hora
+   na tela de exibição.
+
+
+------------------------------------------
+NAVEGADOR RECOMENDADO
+------------------------------------------
+
+Use GOOGLE CHROME ou MICROSOFT EDGE. São os mais garantidos para a
+sincronização entre as duas janelas quando o arquivo é aberto por
+duplo clique.
+
+
+------------------------------------------
+O QUE O PLACAR FAZ
+------------------------------------------
+
+- Dois atletas com PONTOS, VANTAGENS (VANT) e PUNIÇÕES (PUN).
+- Botões +2 / +3 / +4 / +A / +P e os equivalentes para subtrair.
+- Marcação de STALLING (parada de luta) para cada atleta.
+- Cronômetro com Iniciar/Pausar, Zerar, -30s/+30s e tempos prontos
+  (4, 5, 6, 8 e 10 minutos). Toca um sinal sonoro no fim do tempo.
+- "Encerrar Luta": calcula o vencedor por pontos, depois vantagens,
+  depois menos punições. Em caso de empate total, o árbitro escolhe
+  o vencedor por decisão.
+- Desfazer, Trocar Lados e Nova Luta.
+- Campos de Competição / Fase / Categoria que aparecem no rodapé da
+  tela de exibição.
+
+
+------------------------------------------
+OBSERVAÇÕES
+------------------------------------------
+
+- As duas telas (controle e exibição) precisam estar no MESMO
+  computador. Não sincroniza entre computadores diferentes.
+- O placar guarda o estado no próprio navegador; se fechar e abrir
+  de novo, ele recupera a última luta.
+- Para começar do zero, use o botão "Nova Luta".
+
+Bom campeonato! 🥋
