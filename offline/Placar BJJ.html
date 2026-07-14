@@ -436,8 +436,17 @@
   function tick() {
     if (!state.timer.running) return;
     const rem = Math.max(0, Math.ceil((endTs - Date.now()) / 1000));
+    if (rem <= 0) {
+      // Time's up: stop the clock and sound the buzzer, but do NOT declare a
+      // winner — the referee may still score after the bell. Declaring the
+      // winner is an explicit action ("Encerrar Luta"). Checked before the
+      // change guard so it also fires if the clock was cranked straight to 0.
+      playBuzzer();
+      endTs = null;
+      commit({ timer: { ...state.timer, remaining: 0, running: false } });
+      return;
+    }
     if (rem !== state.timer.remaining) {
-      if (rem <= 0) { playBuzzer(); finishMatch(); return; }
       commit({ timer: { ...state.timer, remaining: rem } });
     }
   }
@@ -485,7 +494,7 @@
     const t = st.timer;
     const m = Math.floor(t.remaining / 60), s = t.remaining % 60;
     const timeText = m + ':' + String(s).padStart(2, '0');
-    const low = t.running && t.remaining <= 10;
+    const low = (t.running && t.remaining <= 10) || t.remaining === 0;
     const showTeam = CONFIG.showTeam;
     const wi = st.winnerIdx;
     const resultHasWinner = st.finished && wi !== null && wi !== undefined;

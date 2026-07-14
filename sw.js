@@ -1,5 +1,5 @@
 /* Placar BJJ — service worker (offline app shell) */
-const CACHE = 'placar-bjj-v1';
+const CACHE = 'placar-bjj-v2';
 const ASSETS = [
   './',
   './index.html',
