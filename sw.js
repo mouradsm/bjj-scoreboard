@@ -1,5 +1,5 @@
 /* Placar BJJ — service worker (offline app shell) */
-const CACHE = 'placar-bjj-v2';
+const CACHE = 'placar-bjj-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -11,7 +11,14 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  // Precache only. Do NOT skipWaiting here: the new worker stays in "waiting"
+  // so the page can prompt the user, and only takes over when they click
+  // "Recarregar" (which posts SKIP_WAITING below).
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));
+});
+
+self.addEventListener('message', (e) => {
+  if (e.data && e.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
 self.addEventListener('activate', (e) => {

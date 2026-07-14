@@ -651,11 +651,60 @@
 </script>
 
 <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("sw.js").catch(() => {});
+(function () {
+  if (!("serviceWorker" in navigator)) return;
+  var isDisplay = false;
+  try { isDisplay = new URLSearchParams(location.search).get("view") === "display"; } catch (e) {}
+
+  window.addEventListener("load", function () {
+    var pending = false; // true depois que o usuário pede para atualizar
+
+    // Aviso discreto de nova versão (só na tela de controle — nunca no projetor).
+    function showUpdate(worker) {
+      if (isDisplay) return;
+      if (document.getElementById("bjjUpdate")) return;
+      var bar = document.createElement("div");
+      bar.id = "bjjUpdate";
+      bar.style.cssText = "position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:9999;display:flex;align-items:center;gap:14px;background:#15171b;border:1px solid #f0c419;border-radius:12px;padding:12px 16px;box-shadow:0 10px 34px rgba(0,0,0,.55);font-family:'Barlow',system-ui,sans-serif;color:#e9eaec";
+      var txt = document.createElement("span");
+      txt.textContent = "Nova versão disponível";
+      txt.style.cssText = "font-size:14px;font-weight:700;white-space:nowrap";
+      var reload = document.createElement("button");
+      reload.textContent = "Recarregar";
+      reload.style.cssText = "background:#2f9e44;color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:14px;font-weight:800;cursor:pointer";
+      reload.onclick = function () {
+        pending = true;
+        reload.textContent = "Atualizando…";
+        try { worker.postMessage({ type: "SKIP_WAITING" }); } catch (e) { location.reload(); }
+      };
+      var close = document.createElement("button");
+      close.textContent = "✕";
+      close.setAttribute("aria-label", "Dispensar");
+      close.style.cssText = "background:transparent;color:#9aa0a8;border:none;font-size:16px;font-weight:700;cursor:pointer;line-height:1";
+      close.onclick = function () { bar.remove(); };
+      bar.appendChild(txt); bar.appendChild(reload); bar.appendChild(close);
+      document.body.appendChild(bar);
+    }
+
+    navigator.serviceWorker.register("sw.js").then(function (reg) {
+      // Já havia uma versão nova aguardando de uma visita anterior?
+      if (reg.waiting && navigator.serviceWorker.controller) showUpdate(reg.waiting);
+      reg.addEventListener("updatefound", function () {
+        var nw = reg.installing;
+        if (!nw) return;
+        nw.addEventListener("statechange", function () {
+          // "installed" com um controller já ativo = é uma ATUALIZAÇÃO (não a 1ª instalação)
+          if (nw.state === "installed" && navigator.serviceWorker.controller) showUpdate(nw);
+        });
+      });
+    }).catch(function () {});
+
+    // Recarrega apenas quando o usuário pediu (evita reload surpresa na 1ª instalação).
+    navigator.serviceWorker.addEventListener("controllerchange", function () {
+      if (pending) { pending = false; location.reload(); }
+    });
   });
-}
+})();
 </script>
 </body>
 </html>

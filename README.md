@@ -51,3 +51,9 @@ Placar-BJJ-offline.zip  → o mesmo, empacotado para download
 - Um único arquivo HTML autossuficiente: fontes (Barlow / Barlow Condensed) embutidas em base64, sem CDN, **zero requisições externas**.
 - Sincronização controle ↔ exibição por `postMessage` (robusto até em `file://`), com `BroadcastChannel` + `localStorage` como reforço.
 - Sem build, sem dependências.
+- No fim do tempo o cronômetro apenas **para e toca o sinal** — o vencedor não é declarado automaticamente (o árbitro pode pontuar após o gongo). Declarar é feito no botão **Encerrar Luta**.
+- Versão hospedada (PWA): quando há atualização, aparece um aviso **“Nova versão disponível — Recarregar”** na tela de controle; a atualização só é aplicada quando o usuário confirma. Para publicar uma nova versão, suba o número do cache em [`sw.js`](sw.js).
+
+## Licença
+
+[MIT](LICENSE) © 2026 Diego Moura
