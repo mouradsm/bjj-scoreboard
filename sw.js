@@ -1,5 +1,5 @@
 /* Placar BJJ — service worker (offline app shell) */
-const CACHE = 'placar-bjj-v3';
+const CACHE = 'placar-bjj-v4';
 const ASSETS = [
   './',
   './index.html',
@@ -29,11 +29,27 @@ self.addEventListener('activate', (e) => {
   );
 });
 
-// Cache-first, with network fallback and cache-fill. The whole app is a single
-// self-contained file, so this makes it fully usable offline once installed.
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET') return;
+
+  // Page navigations: network-first so an online user always gets the latest
+  // app, falling back to the cached copy when offline. This means content
+  // changes go live without needing a cache-version bump.
+  if (req.mode === 'navigate') {
+    e.respondWith(
+      fetch(req)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put('./index.html', copy)).catch(() => {});
+          return res;
+        })
+        .catch(() => caches.match('./index.html', { ignoreSearch: true }).then((r) => r || caches.match('./')))
+    );
+    return;
+  }
+
+  // Everything else (icons, etc.): cache-first with network fallback and fill.
   e.respondWith(
     caches.match(req, { ignoreSearch: true }).then((hit) => {
       if (hit) return hit;
