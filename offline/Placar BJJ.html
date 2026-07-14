@@ -115,30 +115,31 @@
 <!-- =================== CONTROL VIEW =================== -->
 <div class="ctl" id="ctl">
   <div class="topbar">
-    <div class="brand">PLACAR&nbsp;BJJ</div>
-    <input id="comp" class="meta-in" placeholder="Nome da competição" style="flex:1;min-width:180px">
-    <input id="phase" class="meta-in" placeholder="Fase (ex.: Qualificatória)" style="width:190px;text-transform:uppercase">
-    <input id="cat" class="meta-in" placeholder="Categoria (idade / sexo / faixa / peso)" style="flex:1;min-width:220px;text-transform:uppercase">
-    <button id="previewBtn" class="btn btn-ghost" style="padding:0 16px;height:44px;font-size:13px">Pré-visualizar</button>
-    <button id="openDisplayBtn" class="btn btn-green" style="padding:0 18px;height:44px;font-size:14px;letter-spacing:.3px;white-space:nowrap">Abrir Tela de Exibição ↗</button>
+    <div class="brand" data-i18n="brand">PLACAR&nbsp;BJJ</div>
+    <input id="comp" class="meta-in" data-i18n-ph="ph_comp" placeholder="Nome da competição" style="flex:1;min-width:180px">
+    <input id="phase" class="meta-in" data-i18n-ph="ph_phase" placeholder="Fase (ex.: Qualificatória)" style="width:190px;text-transform:uppercase">
+    <input id="cat" class="meta-in" data-i18n-ph="ph_cat" placeholder="Categoria (idade / sexo / faixa / peso)" style="flex:1;min-width:220px;text-transform:uppercase">
+    <button id="previewBtn" class="btn btn-ghost" data-i18n="t_preview" style="padding:0 16px;height:44px;font-size:13px">Pré-visualizar</button>
+    <button id="openDisplayBtn" class="btn btn-green" data-i18n="t_openDisplay" style="padding:0 18px;height:44px;font-size:14px;letter-spacing:.3px;white-space:nowrap">Abrir Tela de Exibição ↗</button>
+    <button id="langToggle" class="btn btn-ghost" title="Idioma / Language" style="padding:0 14px;height:44px;font-size:13px;font-weight:800">EN</button>
   </div>
 
   <!-- winner / tie bar -->
   <div id="winbar" class="winbar hidden">
     <div id="winbarWinner" style="display:flex;align-items:center;gap:14px;flex:1;flex-wrap:wrap">
       <span style="font-size:22px">🏆</span>
-      <span style="font-size:13px;font-weight:800;letter-spacing:1.5px;color:#f0c419">VENCEDOR</span>
+      <span data-i18n="t_winner_label" style="font-size:13px;font-weight:800;letter-spacing:1.5px;color:#f0c419">VENCEDOR</span>
       <span id="winnerName" style="font-size:24px;font-weight:800;color:#fff;text-transform:uppercase"></span>
       <div style="flex:1"></div>
-      <button id="reopenBtn" class="btn-lg" style="height:46px;padding:0 18px;font-size:14px">↩ Reabrir luta</button>
-      <button id="newFromWinBtn" class="btn btn-green" style="height:46px;padding:0 22px;font-size:15px">Nova Luta</button>
+      <button id="reopenBtn" class="btn-lg" data-i18n="t_reopen" style="height:46px;padding:0 18px;font-size:14px">↩ Reabrir luta</button>
+      <button id="newFromWinBtn" class="btn btn-green" data-i18n="t_newMatch" style="height:46px;padding:0 22px;font-size:15px">Nova Luta</button>
     </div>
     <div id="winbarTie" class="hidden" style="display:flex;align-items:center;gap:14px;flex:1;flex-wrap:wrap">
-      <span style="font-size:13px;font-weight:800;letter-spacing:1.5px;color:#f0c419">EMPATE — ESCOLHA O VENCEDOR (decisão do árbitro)</span>
+      <span data-i18n="t_tie_label" style="font-size:13px;font-weight:800;letter-spacing:1.5px;color:#f0c419">EMPATE — ESCOLHA O VENCEDOR (decisão do árbitro)</span>
       <button id="chooseA" style="background:#e9eaec;color:#141414;border:none;border-radius:9px;padding:0 20px;height:46px;font-size:15px;font-weight:800;text-transform:uppercase"></button>
       <button id="chooseB" style="background:#1d4e9e;color:#fff;border:none;border-radius:9px;padding:0 20px;height:46px;font-size:15px;font-weight:800;text-transform:uppercase"></button>
       <div style="flex:1"></div>
-      <button id="newFromTieBtn" class="btn-lg" style="height:46px;padding:0 18px;font-size:14px">Nova Luta</button>
+      <button id="newFromTieBtn" class="btn-lg" data-i18n="t_newMatch" style="height:46px;padding:0 18px;font-size:14px">Nova Luta</button>
     </div>
   </div>
 
@@ -149,11 +150,11 @@
         <span class="dot" style="background:#c9ccd1"></span>
         <input id="aName" class="name-in">
       </div>
-      <input id="aTeam" class="team-in" placeholder="Equipe">
+      <input id="aTeam" class="team-in" data-i18n-ph="ph_team" placeholder="Equipe">
       <div class="stats">
-        <div style="text-align:center"><div class="stat-lbl">PONTOS</div><div id="aPoints" class="stat-big">0</div></div>
-        <div style="text-align:center"><div class="stat-lbl">VANT</div><div id="aAdv" class="stat-mid adv">0</div></div>
-        <div style="text-align:center"><div class="stat-lbl">PUN</div><div id="aPen" class="stat-mid pen">0</div></div>
+        <div style="text-align:center"><div class="stat-lbl" data-i18n="t_points">PONTOS</div><div id="aPoints" class="stat-big">0</div></div>
+        <div style="text-align:center"><div class="stat-lbl" data-i18n="t_adv">VANT</div><div id="aAdv" class="stat-mid adv">0</div></div>
+        <div style="text-align:center"><div class="stat-lbl" data-i18n="t_pen">PUN</div><div id="aPen" class="stat-mid pen">0</div></div>
       </div>
     </div>
     <div class="pad">
@@ -178,11 +179,11 @@
         <span class="dot" style="background:#2f6fd6"></span>
         <input id="bName" class="name-in">
       </div>
-      <input id="bTeam" class="team-in" placeholder="Equipe">
+      <input id="bTeam" class="team-in" data-i18n-ph="ph_team" placeholder="Equipe">
       <div class="stats">
-        <div style="text-align:center"><div class="stat-lbl">PONTOS</div><div id="bPoints" class="stat-big">0</div></div>
-        <div style="text-align:center"><div class="stat-lbl">VANT</div><div id="bAdv" class="stat-mid adv">0</div></div>
-        <div style="text-align:center"><div class="stat-lbl">PUN</div><div id="bPen" class="stat-mid pen">0</div></div>
+        <div style="text-align:center"><div class="stat-lbl" data-i18n="t_points">PONTOS</div><div id="bPoints" class="stat-big">0</div></div>
+        <div style="text-align:center"><div class="stat-lbl" data-i18n="t_adv">VANT</div><div id="bAdv" class="stat-mid adv">0</div></div>
+        <div style="text-align:center"><div class="stat-lbl" data-i18n="t_pen">PUN</div><div id="bPen" class="stat-mid pen">0</div></div>
       </div>
     </div>
     <div class="pad">
@@ -204,7 +205,7 @@
   <div class="timerbar">
     <div id="clockCtl" class="clock-ctl">5:00</div>
     <button id="playBtn" class="btn-lg-green">Iniciar</button>
-    <button id="resetBtn" class="btn-lg">Zerar</button>
+    <button id="resetBtn" class="btn-lg" data-i18n="t_reset">Zerar</button>
     <button id="sub30Btn" class="btn-lg">−30s</button>
     <button id="add30Btn" class="btn-lg">+30s</button>
     <div class="divider"></div>
@@ -217,10 +218,11 @@
 
   <!-- Footer -->
   <div class="footer">
-    <button id="undoBtn" class="btn-foot">↩ Desfazer</button>
-    <button id="switchBtn" class="btn-foot">⇄ Trocar Lados</button>
-    <button id="newBtn" class="btn-foot">✚ Nova Luta</button>
-    <button id="finishBtn" class="btn-finish">Encerrar Luta</button>
+    <button id="undoBtn" class="btn-foot" data-i18n="t_undo">↩ Desfazer</button>
+    <button id="switchBtn" class="btn-foot" data-i18n="t_swap">⇄ Trocar Lados</button>
+    <button id="newBtn" class="btn-foot" data-i18n="t_newMatchF">✚ Nova Luta</button>
+    <button id="finishBtn" class="btn-finish" data-i18n="t_finish">Encerrar Luta</button>
+    <button id="donateBtn" class="btn-foot hidden" data-i18n="t_donate" style="border-color:#5a4a1e;color:#f0c419">❤ Apoiar</button>
   </div>
 </div>
 
@@ -260,17 +262,17 @@
 
   <div class="disp-overlay hidden" id="dOverlay">
     <div id="dOvWinner" style="display:flex;flex-direction:column;align-items:center;gap:1.2vw">
-      <div class="ov-label">🏆 Vencedor</div>
+      <div class="ov-label" data-i18n="d_winner">🏆 Vencedor</div>
       <div class="ov-name" id="dWinnerName"></div>
       <div class="ov-team" id="dWinnerTeam"></div>
     </div>
     <div id="dOvTie" class="hidden" style="display:flex;flex-direction:column;align-items:center;gap:1.2vw">
-      <div class="ov-tie">EMPATE</div>
-      <div class="ov-tie-sub">Aguardando decisão do árbitro</div>
+      <div class="ov-tie" data-i18n="d_tie">EMPATE</div>
+      <div class="ov-tie-sub" data-i18n="d_tie_sub">Aguardando decisão do árbitro</div>
     </div>
   </div>
 
-  <button id="previewCloseBtn" class="preview-close hidden">✕ Fechar pré-visualização</button>
+  <button id="previewCloseBtn" class="preview-close hidden" data-i18n="t_previewClose">✕ Fechar pré-visualização</button>
 </div>
 
 <script>
@@ -281,6 +283,61 @@
   const CONFIG = { enableBuzzer: true, defaultMinutes: 5, showTeam: true };
   const KEY = 'bjj_placar_state_v1';
   const CH  = 'bjj_placar_v1';
+  const LKEY = 'bjj_lang';
+
+  // ---- i18n (PT / EN) ----
+  const I18N = {
+    pt: {
+      brand: 'PLACAR BJJ',
+      ph_comp: 'Nome da competição', ph_phase: 'Fase (ex.: Qualificatória)', ph_cat: 'Categoria (idade / sexo / faixa / peso)',
+      t_preview: 'Pré-visualizar', t_openDisplay: 'Abrir Tela de Exibição ↗',
+      t_winner_label: 'VENCEDOR', t_reopen: '↩ Reabrir luta', t_newMatch: 'Nova Luta',
+      t_tie_label: 'EMPATE — ESCOLHA O VENCEDOR (decisão do árbitro)',
+      ph_team: 'Equipe', t_points: 'PONTOS', t_adv: 'VANT', t_pen: 'PUN',
+      t_reset: 'Zerar', t_undo: '↩ Desfazer', t_swap: '⇄ Trocar Lados', t_newMatchF: '✚ Nova Luta',
+      t_finish: 'Encerrar Luta', t_previewClose: '✕ Fechar pré-visualização',
+      t_start: 'Iniciar', t_pause: 'Pausar',
+      d_winner: '🏆 Vencedor', d_tie: 'EMPATE', d_tie_sub: 'Aguardando decisão do árbitro',
+      t_donate: '❤ Apoiar',
+      seedComp: 'Copa Regional de Jiu-Jitsu', seedPhase: 'QUALIFICATÓRIA', seedCat: 'MASTER 3 / MASCULINO / AZUL / PENA',
+      seedA: 'Atleta 1', seedB: 'Atleta 2', seedTeamA: 'Equipe A', seedTeamB: 'Equipe B',
+      dn_title: 'Apoiar o projeto', dn_intro: 'Se o Placar BJJ te ajuda, considere uma doação. Obrigado! 🙏',
+      dn_pix_copy_key: 'Copiar chave', dn_pix_copy_code: 'Copiar código Pix', dn_copied: 'Copiado!', dn_open_link: 'Abrir'
+    },
+    en: {
+      brand: 'BJJ SCOREBOARD',
+      ph_comp: 'Competition name', ph_phase: 'Phase (e.g., Qualifier)', ph_cat: 'Category (age / gender / belt / weight)',
+      t_preview: 'Preview', t_openDisplay: 'Open Display Screen ↗',
+      t_winner_label: 'WINNER', t_reopen: '↩ Reopen match', t_newMatch: 'New Match',
+      t_tie_label: 'TIE — CHOOSE THE WINNER (referee decision)',
+      ph_team: 'Team', t_points: 'POINTS', t_adv: 'ADV', t_pen: 'PEN',
+      t_reset: 'Reset', t_undo: '↩ Undo', t_swap: '⇄ Swap Sides', t_newMatchF: '✚ New Match',
+      t_finish: 'End Match', t_previewClose: '✕ Close preview',
+      t_start: 'Start', t_pause: 'Pause',
+      d_winner: '🏆 Winner', d_tie: 'TIE', d_tie_sub: 'Awaiting referee decision',
+      t_donate: '❤ Support',
+      seedComp: 'Regional Jiu-Jitsu Cup', seedPhase: 'QUALIFIER', seedCat: 'MASTER 3 / MALE / BLUE / FEATHER',
+      seedA: 'Athlete 1', seedB: 'Athlete 2', seedTeamA: 'Team A', seedTeamB: 'Team B',
+      dn_title: 'Support the project', dn_intro: 'If BJJ Scoreboard helps you, consider a donation. Thank you! 🙏',
+      dn_pix_copy_key: 'Copy key', dn_pix_copy_code: 'Copy Pix code', dn_copied: 'Copied!', dn_open_link: 'Open'
+    }
+  };
+
+  // ---- donation config: fill these in to enable the "Support" button ----
+  const DONATE = {
+    pix:    { key: '', name: '', city: '' },   // ex.: { key: 'sua-chave@email.com', name: 'DIEGO MOURA', city: 'SAO PAULO' }
+    kofi:   '',                                 // ex.: 'https://ko-fi.com/seunome'
+    paypal: ''                                  // ex.: 'https://paypal.me/seunome'
+  };
+  function hasDonate() { return !!(DONATE.pix.key || DONATE.kofi || DONATE.paypal); }
+
+  function detectLang() {
+    try { const s = localStorage.getItem(LKEY); if (s === 'pt' || s === 'en') return s; } catch (e) {}
+    try { return (navigator.language || 'pt').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en'; } catch (e) {}
+    return 'pt';
+  }
+  let lang = detectLang();
+  const tr = (k) => (I18N[lang] && I18N[lang][k] != null) ? I18N[lang][k] : (I18N.pt[k] != null ? I18N.pt[k] : k);
 
   let viewParam = null;
   try { viewParam = new URLSearchParams(location.search).get('view'); } catch (e) {}
@@ -288,16 +345,17 @@
 
   const mins = CONFIG.defaultMinutes;
   const state = {
-    competition: 'Copa Regional de Jiu-Jitsu',
-    phase: 'QUALIFICATÓRIA',
-    category: 'MASTER 3 / MASCULINO / AZUL / PENA',
+    lang: lang,
+    competition: tr('seedComp'),
+    phase: tr('seedPhase'),
+    category: tr('seedCat'),
     previewDisplay: false,
     finished: false,
     winnerIdx: null,
     isTie: false,
     fighters: [
-      { name: 'Atleta 1', team: 'Equipe A', points: 0, adv: 0, pen: 0, stalling: false },
-      { name: 'Atleta 2', team: 'Equipe B', points: 0, adv: 0, pen: 0, stalling: false }
+      { name: tr('seedA'), team: tr('seedTeamA'), points: 0, adv: 0, pen: 0, stalling: false },
+      { name: tr('seedB'), team: tr('seedTeamB'), points: 0, adv: 0, pen: 0, stalling: false }
     ],
     timer: { total: mins * 60, remaining: mins * 60, running: false }
   };
@@ -315,7 +373,8 @@
     return {
       competition: state.competition, category: state.category, phase: state.phase,
       fighters: state.fighters, timer: state.timer,
-      finished: state.finished, winnerIdx: state.winnerIdx, isTie: state.isTie
+      finished: state.finished, winnerIdx: state.winnerIdx, isTie: state.isTie,
+      lang: state.lang
     };
   }
   function loadShare() {
@@ -334,7 +393,9 @@
   function applyRemote(data) {
     if (!data) return;
     const prev = state.timer ? state.timer.remaining : null;
+    const langChanged = data.lang && data.lang !== lang;
     applyState(data);
+    if (langChanged) { lang = state.lang; applyI18n(); }
     if (prev > 0 && data.timer && data.timer.remaining <= 0) playBuzzer();
     render();
   }
@@ -517,7 +578,7 @@
       });
       setText('clockCtl', timeText);
       $('clockCtl').style.color = low ? '#ff5b4d' : '#f2f2f2';
-      setText('playBtn', t.running ? 'Pausar' : 'Iniciar');
+      setText('playBtn', t.running ? tr('t_pause') : tr('t_start'));
 
       show('winbar', st.finished);
       show('winbarWinner', resultHasWinner);
@@ -597,6 +658,8 @@
     $('previewBtn').addEventListener('click', togglePreview);
     $('previewCloseBtn').addEventListener('click', togglePreview);
     $('openDisplayBtn').addEventListener('click', openDisplay);
+    $('langToggle').addEventListener('click', () => setLang(lang === 'pt' ? 'en' : 'pt'));
+    $('donateBtn').addEventListener('click', openDonate);
 
     // winner bar
     $('reopenBtn').addEventListener('click', reopenMatch);
@@ -606,9 +669,101 @@
     $('chooseB').addEventListener('click', () => chooseWinner(1));
   }
 
+  // ---- i18n runtime ----
+  function applyI18n() {
+    const d = I18N[lang] || I18N.pt;
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const k = el.getAttribute('data-i18n');
+      if (d[k] != null) el.textContent = d[k];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach((el) => {
+      const k = el.getAttribute('data-i18n-ph');
+      if (d[k] != null) el.setAttribute('placeholder', d[k]);
+    });
+    try { document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en'; } catch (e) {}
+    const lt = $('langToggle'); if (lt) lt.textContent = lang === 'pt' ? 'EN' : 'PT';
+  }
+  function setLang(l) {
+    if (l !== 'pt' && l !== 'en') return;
+    lang = l; state.lang = l;
+    try { localStorage.setItem(LKEY, l); } catch (e) {}
+    applyI18n();
+    persist();   // propaga o idioma (via estado compartilhado) para a tela de exibição
+    render();
+  }
+
+  // ---- donation ----
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function escA(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+  // Static Pix BR Code (EMV) without amount. CRC16/CCITT-FALSE (poly 0x1021, init 0xFFFF).
+  function pixPayload(key, name, city) {
+    const f = (id, v) => id + String(v.length).padStart(2, '0') + v;
+    const norm = (s, n) => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^\x20-\x7E]/g, '').toUpperCase().slice(0, n);
+    const mai = f('26', f('00', 'br.gov.bcb.pix') + f('01', key));
+    let p = f('00', '01') + mai + f('52', '0000') + f('53', '986') + f('58', 'BR') +
+            f('59', norm(name, 25) || 'NA') + f('60', norm(city, 15) || 'NA') + f('62', f('05', '***')) + '6304';
+    let crc = 0xFFFF;
+    for (let i = 0; i < p.length; i++) {
+      crc ^= p.charCodeAt(i) << 8;
+      for (let j = 0; j < 8; j++) crc = (crc & 0x8000) ? ((crc << 1) ^ 0x1021) & 0xFFFF : (crc << 1) & 0xFFFF;
+    }
+    return p + crc.toString(16).toUpperCase().padStart(4, '0');
+  }
+  function copyText(str, btn) {
+    const restore = btn.textContent, done = tr('dn_copied');
+    const ok = () => { btn.textContent = done; setTimeout(() => { btn.textContent = restore; }, 1500); };
+    const fallback = () => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = str; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); ok();
+      } catch (e) {}
+    };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(str).then(ok, fallback); return; }
+    } catch (e) {}
+    fallback();
+  }
+  function linkRow(name, url, badge) {
+    return '<a href="' + escA(url) + '" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;border:1px solid #2a2d34;border-radius:12px;padding:14px;margin-bottom:12px;background:#0e0f12">'
+      + '<span style="font-size:15px;font-weight:800;color:#e9eaec">' + esc(name) + '</span>'
+      + '<span style="font-size:13px;font-weight:800;color:#f0c419">' + esc(badge) + ' ↗</span></a>';
+  }
+  function openDonate() {
+    const old = $('bjjDonate'); if (old) old.remove();
+    const ov = document.createElement('div');
+    ov.id = 'bjjDonate';
+    ov.style.cssText = "position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.72);display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Barlow',system-ui,sans-serif";
+    ov.addEventListener('click', (e) => { if (e.target === ov) ov.remove(); });
+    const card = document.createElement('div');
+    card.style.cssText = 'background:#15171b;border:1px solid #2a2d34;border-radius:16px;max-width:420px;width:100%;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.6);color:#e9eaec;max-height:90vh;overflow:auto';
+    let html = '<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px">'
+      + '<div style="font-size:20px;font-weight:800;color:#f0c419">' + esc(tr('dn_title')) + '</div>'
+      + '<button id="bjjDonateX" aria-label="close" style="background:transparent;border:none;color:#9aa0a8;font-size:20px;font-weight:700;cursor:pointer;line-height:1">✕</button></div>'
+      + '<div style="font-size:14px;color:#aeb2b9;margin-bottom:16px">' + esc(tr('dn_intro')) + '</div>';
+    if (DONATE.pix.key) {
+      const code = pixPayload(DONATE.pix.key, DONATE.pix.name, DONATE.pix.city);
+      html += '<div style="border:1px solid #2a2d34;border-radius:12px;padding:14px;margin-bottom:12px">'
+        + '<div style="font-size:13px;font-weight:800;color:#f0c419;margin-bottom:8px">Pix</div>'
+        + '<div style="font-size:13px;word-break:break-all;background:#0e0f12;border:1px solid #23252b;border-radius:8px;padding:8px 10px;margin-bottom:10px">' + esc(DONATE.pix.key) + '</div>'
+        + '<div style="display:flex;gap:8px;flex-wrap:wrap">'
+        + '<button class="bjjCopy" data-v="' + escA(DONATE.pix.key) + '" style="flex:1;min-width:120px;background:#2f9e44;color:#fff;border:none;border-radius:8px;padding:10px;font-size:13px;font-weight:800;cursor:pointer">' + esc(tr('dn_pix_copy_key')) + '</button>'
+        + '<button class="bjjCopy" data-v="' + escA(code) + '" style="flex:1;min-width:120px;background:#22242a;color:#e6e8ec;border:1px solid #34373e;border-radius:8px;padding:10px;font-size:13px;font-weight:800;cursor:pointer">' + esc(tr('dn_pix_copy_code')) + '</button>'
+        + '</div></div>';
+    }
+    if (DONATE.kofi) html += linkRow('Ko-fi', DONATE.kofi, tr('dn_open_link'));
+    if (DONATE.paypal) html += linkRow('PayPal', DONATE.paypal, tr('dn_open_link'));
+    card.innerHTML = html;
+    ov.appendChild(card);
+    document.body.appendChild(ov);
+    card.querySelector('#bjjDonateX').onclick = () => ov.remove();
+    card.querySelectorAll('.bjjCopy').forEach((b) => { b.onclick = () => copyText(b.getAttribute('data-v'), b); });
+  }
+
   // ---- boot ----
   function boot() {
     wire();
+    if (hasDonate()) $('donateBtn').classList.remove('hidden');
     try { channel = new BroadcastChannel(CH); } catch (e) { channel = null; }
     const saved = loadShare();
 
@@ -639,6 +794,8 @@
       });
       setInterval(tick, 200);
     }
+    if (state.lang === 'pt' || state.lang === 'en') lang = state.lang;
+    applyI18n();
     render();
   }
 

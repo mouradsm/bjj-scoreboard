@@ -14,6 +14,7 @@ Placar de Jiu-Jitsu (BJJ) para mesa de arbitragem, com **tela de controle** e **
 - **Encerrar Luta**: calcula o vencedor por pontos → vantagens → menos punições; em empate total, o árbitro decide.
 - Desfazer, Trocar Lados e Nova Luta.
 - Campos de Competição / Fase / Categoria exibidos no rodapé da tela de exibição.
+- **Bilíngue 🇧🇷 PT / 🇬🇧 EN** — botão de idioma no topo (detecta o idioma do navegador); a tela de exibição acompanha o idioma da tela de controle.
 
 ## Como usar
 
